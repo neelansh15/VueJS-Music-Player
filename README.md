@@ -1,4 +1,6 @@
-# musicapp
+# VueJS Music Application
+
+![screenshots/1.png](Screenshot)
 
 ## Project setup
 ```
