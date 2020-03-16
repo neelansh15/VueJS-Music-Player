@@ -1,6 +1,8 @@
 # VueJS Music Application
+A simple VueJS Application to play songs that are currently hard-coded into an array in _App.vue_
 
-![screenshots/1.png](Screenshot)
+
+![Screenshot](screenshots/1.png)
 
 ## Project setup
 ```
