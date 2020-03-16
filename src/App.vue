@@ -8,14 +8,14 @@
 
         <h2 class="song-title">
           {{ current.title }}
-          <span> - By {{ current.artist }}</span>
+          <span> - {{ current.artist }}</span>
         </h2>
 
         <div class="controls">
-          <button class="prev">Previous</button>
+          <button class="prev" @click="prev">Previous</button>
           <button class="play" v-if="!isPlaying" v-on:click="play">Play</button>
           <button class="pause" v-else v-on:click="pause">Pause</button>
-          <button class="next">Next</button>
+          <button class="next" @click="next">Next</button>
         </div>
 
       </section>
@@ -24,6 +24,7 @@
         <h3>The Playlist</h3>
         <button v-for="song in songs" :key="song.src" @click="play(song)" :class="(song.src == current.src) ? 'song playing' : 'song'">
           {{ song.title }}
+          <span> - {{song.artist}} </span>
         </button>
       </section>
     </main>
@@ -70,13 +71,28 @@ export default {
     pause(){
       this.player.pause()
       this.isPlaying = false
+    },
+    prev(){
+      this.index--
+      if(this.index < 0)
+        this.index = this.songs.length - 1
+      
+      this.current = this.songs[this.index]
+      this.play(this.current)
+    },
+    next(){
+      this.index++;
+      if(this.index > this.songs.length - 1)
+        this.index = 0
+      
+      this.current = this.songs[this.index]
+      this.play(this.current)
     }
   },
 
   created(){
     this.current = this.songs[this.index]
     this.player.src = this.current.src
-    // this.player.play()
   }
 
 }
