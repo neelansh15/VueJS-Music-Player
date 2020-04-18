@@ -1,5 +1,6 @@
 # VueJS Music Application
 A simple VueJS Application to play songs that are currently hard-coded into an array in _App.vue_
+
 Avaiable at: https://vuejs-test-nlm-9fe5a.web.app/
 
 
